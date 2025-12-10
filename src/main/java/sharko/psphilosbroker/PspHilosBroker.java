@@ -7,6 +7,8 @@ package sharko.psphilosbroker;
 public class PspHilosBroker {
 
     public static void main(String[] args) {
-        
+        MainJFrame view = new MainJFrame();
+        MainController mc = new MainController(view);
+        view.setVisible(true);
     }
 }

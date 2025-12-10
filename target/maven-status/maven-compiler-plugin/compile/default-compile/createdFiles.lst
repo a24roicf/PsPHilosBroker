@@ -1,1 +1,5 @@
-sharko/psphilosbroker/PspHilosBroker.class
+sharko\psphilosbroker\PspHilosBroker.class
+sharko\psphilosbroker\Operaciones.class
+sharko\psphilosbroker\Usuario.class
+sharko\psphilosbroker\MainController.class
+sharko\psphilosbroker\MainJFrame.class
