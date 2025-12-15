@@ -26,12 +26,19 @@ public class Agente implements Serializable{
             case "compra":
                 if (compra == null) {
                     compra = new Operaciones(tipo, limite, cantidad);
+                    return true;
                 } else {
                     System.out.println("Ya existe una operacion de compra para el agente " + getNombre());
                 }
                 break;
             case "venta":
-                
+                if (venta == null){
+                    venta = new Operaciones(tipo, limite, cantidad);
+                    return true;
+                } else {
+                    System.out.println("Ya existe una operacion de venta para el agente " + getNombre());
+                }
+                break;
             default:
                 return false;
         }
