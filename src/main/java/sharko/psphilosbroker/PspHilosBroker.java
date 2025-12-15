@@ -10,5 +10,6 @@ public class PspHilosBroker {
         MainJFrame view = new MainJFrame();
         MainController mc = new MainController(view);
         view.setVisible(true);
+        view.setTitle("PSP Hilos Broker");
     }
 }

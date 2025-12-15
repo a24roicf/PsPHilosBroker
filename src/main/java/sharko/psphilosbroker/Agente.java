@@ -1,19 +1,19 @@
 package sharko.psphilosbroker;
 
-import java.util.List;
+import java.io.Serializable;
 
 /**
  *
  * @author dam2_alu03@inf.ald
  */
-public class Usuario {
+public class Agente implements Serializable{
     private int id;
     private String nombre;
     private Operaciones compra;
     private Operaciones venta;
     private double saldo;
 
-    public Usuario(int id, String nombre, Operaciones compra, Operaciones venta, double saldo) {
+    public Agente(int id, String nombre, Operaciones compra, Operaciones venta, double saldo) {
         this.id = id;
         this.nombre = nombre;
         this.compra = compra;
@@ -56,7 +56,7 @@ public class Usuario {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Usuario other = (Usuario) obj;
+        final Agente other = (Agente) obj;
         return this.id == other.id;
     }
 
