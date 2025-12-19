@@ -118,6 +118,6 @@ public class Agente implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", compra=" + compra + ", venta=" + venta + ", saldo=" + saldo + '}';
+        return nombre;
     }
 }

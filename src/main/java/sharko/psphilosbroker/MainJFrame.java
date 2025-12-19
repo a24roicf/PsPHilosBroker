@@ -54,8 +54,8 @@ public class MainJFrame extends javax.swing.JFrame {
         tipoLabel = new javax.swing.JLabel();
         cantidadLabel = new javax.swing.JLabel();
         precioOperacionLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        crearOperacionButton = new javax.swing.JButton();
+        borrarButton = new javax.swing.JButton();
         agenteComboBox = new javax.swing.JComboBox<>();
         tipoComboBox = new javax.swing.JComboBox<>();
         cantidadTextField = new javax.swing.JTextField();
@@ -247,9 +247,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         precioOperacionLabel.setText("Precio:");
 
-        jButton1.setText("Crear");
+        crearOperacionButton.setText("Crear");
 
-        jButton2.setText("Borrar");
+        borrarButton.setText("Borrar");
 
         tipoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Compra", "Venta" }));
 
@@ -277,9 +277,9 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(operationPanelLayout.createSequentialGroup()
                 .addGap(110, 110, 110)
-                .addComponent(jButton1)
+                .addComponent(crearOperacionButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(borrarButton)
                 .addContainerGap(128, Short.MAX_VALUE))
         );
         operationPanelLayout.setVerticalGroup(
@@ -303,8 +303,8 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(precioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(operationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(crearOperacionButton)
+                    .addComponent(borrarButton))
                 .addContainerGap(184, Short.MAX_VALUE))
         );
 
@@ -354,21 +354,55 @@ public class MainJFrame extends javax.swing.JFrame {
         activosTextField.setText("");
     }
 
+    public void limpiarFormularioOperacion() {
+        cantidadTextField.setText("");
+        precioTextField.setText("");
+    }
+
+    public void addCrearOperacionListener(java.awt.event.ActionListener l) {
+        crearOperacionButton.addActionListener(l);
+    }
+
+    public void addBorrarOperacionListener(java.awt.event.ActionListener l) {
+        borrarButton.addActionListener(l);
+    }
+
+    public String getTipoOperacion() {
+        return (String) tipoComboBox.getSelectedItem();
+    }
+
+    public String getCantidadOperacion() {
+        return cantidadTextField.getText().trim();
+    }
+
+    public String getPrecioOperacion() {
+        return precioTextField.getText().trim();
+    }
+
+    public Agente getAgenteSeleccionado() {
+        return (Agente) agenteComboBox.getSelectedItem();
+    }
+
+    public void addAgenteCombo(Agente a) {
+        agenteComboBox.addItem(a);
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane MainTabbedPane;
     private javax.swing.JLabel activosLabel;
     private javax.swing.JTextField activosTextField;
     private javax.swing.JPanel agentPanel;
-    private javax.swing.JComboBox<String> agenteComboBox;
+    private javax.swing.JComboBox<Agente> agenteComboBox;
     private javax.swing.JLabel agenteLabel;
     private javax.swing.JTable agentesTable;
+    private javax.swing.JButton borrarButton;
     private javax.swing.JLabel cantidadLabel;
     private javax.swing.JTextField cantidadTextField;
     private javax.swing.JButton crearAgenteButton;
+    private javax.swing.JButton crearOperacionButton;
     private javax.swing.JPanel graficPanel;
     private javax.swing.JPanel infoPanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField nombreTextField;

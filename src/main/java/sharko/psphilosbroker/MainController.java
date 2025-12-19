@@ -22,6 +22,7 @@ public class MainController {
 
     private void initController() {
         view.addCrearAgenteButtonListener(e -> crearAgente());
+        view.addCrearOperacionListener(e -> crearOperacion());
     }
 
     private void crearAgente() {
@@ -62,6 +63,52 @@ public class MainController {
         });
 
         view.limpiarFormularioAgente();
+        view.addAgenteCombo(agente);
+    }
+
+    private void crearOperacion() {
+        Agente agente = view.getAgenteSeleccionado();
+
+        if (agente == null) {
+            mostrarError("Selecciona un agente");
+            return;
+        }
+
+        String tipo = view.getTipoOperacion();
+        String cantidadTxt = view.getCantidadOperacion();
+        String precioTxt = view.getPrecioOperacion();
+
+        double cantidad, precio;
+        try {
+            cantidad = Double.parseDouble(cantidadTxt);
+            precio = Double.parseDouble(precioTxt);
+        } catch (NumberFormatException e) {
+            mostrarError("Cantidad y precio tienen que ser numéricos");
+            return;
+        }
+
+        if (cantidad <= 0 || precio <= 0) {
+            mostrarError("Cantidad y precio tienen que ser mayores que 0");
+            return;
+        }
+
+        boolean creada = agente.nuevaOperacion(
+                tipo.toLowerCase(),
+                precio,
+                cantidad
+        );
+
+        if (!creada) {
+            mostrarError("El agente ya tiene una orden de " + tipo);
+            return;
+        }
+
+        JOptionPane.showMessageDialog(
+                view,
+                "Operación de " + tipo + " registrada correctamente"
+        );
+
+        view.limpiarFormularioOperacion();
     }
 
     private void mostrarError(String mensaje) {
