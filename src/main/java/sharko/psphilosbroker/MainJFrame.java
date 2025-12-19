@@ -4,6 +4,8 @@
  */
 package sharko.psphilosbroker;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Usuario
@@ -31,10 +33,32 @@ public class MainJFrame extends javax.swing.JFrame {
         tablePanel = new javax.swing.JPanel();
         infoPanel = new javax.swing.JPanel();
         precioLabel = new javax.swing.JLabel();
+        precioLabel1 = new javax.swing.JLabel();
+        precioLabel2 = new javax.swing.JLabel();
+        precioLabel3 = new javax.swing.JLabel();
+        precioLabel4 = new javax.swing.JLabel();
         agentPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        nuevoAgenteLabel = new javax.swing.JLabel();
+        nombreLabel = new javax.swing.JLabel();
+        saldoLabel = new javax.swing.JLabel();
+        activosLabel = new javax.swing.JLabel();
+        crearAgenteButton = new javax.swing.JButton();
+        nombreTextField = new javax.swing.JTextField();
+        saldoTextField = new javax.swing.JTextField();
+        activosTextField = new javax.swing.JTextField();
         operationPanel = new javax.swing.JPanel();
+        agenteLabel = new javax.swing.JLabel();
+        tipoLabel = new javax.swing.JLabel();
+        cantidadLabel = new javax.swing.JLabel();
+        precioOperacionLabel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        agenteComboBox = new javax.swing.JComboBox<>();
+        tipoComboBox = new javax.swing.JComboBox<>();
+        cantidadTextField = new javax.swing.JTextField();
+        precioTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,21 +75,44 @@ public class MainJFrame extends javax.swing.JFrame {
 
         precioLabel.setText("Precio:");
 
+        precioLabel1.setText("Max:");
+
+        precioLabel2.setText("Min:");
+
+        precioLabel3.setText("Operaciones:");
+
+        precioLabel4.setText("Volumen:");
+
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
         infoPanelLayout.setHorizontalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(precioLabel)
-                .addContainerGap(345, Short.MAX_VALUE))
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(precioLabel)
+                    .addComponent(precioLabel1)
+                    .addComponent(precioLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(precioLabel3)
+                    .addComponent(precioLabel4))
+                .addGap(137, 137, 137))
         );
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(precioLabel)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(precioLabel)
+                    .addComponent(precioLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(precioLabel1)
+                    .addComponent(precioLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(precioLabel2)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout graficPanelLayout = new javax.swing.GroupLayout(graficPanel);
@@ -110,6 +157,27 @@ public class MainJFrame extends javax.swing.JFrame {
         jTable1.setRequestFocusEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
+        nuevoAgenteLabel.setText("Nuevo Agente");
+
+        nombreLabel.setText("Nombre:");
+
+        saldoLabel.setText("Saldo:");
+
+        activosLabel.setText("Activos:");
+
+        crearAgenteButton.setText("Crear Agente");
+        crearAgenteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearAgenteButtonActionPerformed(evt);
+            }
+        });
+
+        nombreTextField.setText("");
+
+        saldoTextField.setText("");
+
+        activosTextField.setText("");
+
         javax.swing.GroupLayout agentPanelLayout = new javax.swing.GroupLayout(agentPanel);
         agentPanel.setLayout(agentPanelLayout);
         agentPanelLayout.setHorizontalGroup(
@@ -117,27 +185,126 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(agentPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(agentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(agentPanelLayout.createSequentialGroup()
+                        .addComponent(activosLabel)
+                        .addGroup(agentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(agentPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(crearAgenteButton)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(agentPanelLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(activosTextField))))
+                    .addGroup(agentPanelLayout.createSequentialGroup()
+                        .addComponent(nuevoAgenteLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(agentPanelLayout.createSequentialGroup()
+                        .addGroup(agentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nombreLabel)
+                            .addComponent(saldoLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(agentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(saldoTextField)
+                            .addComponent(nombreTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         agentPanelLayout.setVerticalGroup(
             agentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(agentPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(agentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(agentPanelLayout.createSequentialGroup()
+                        .addComponent(nuevoAgenteLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(agentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nombreLabel)
+                            .addComponent(nombreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(agentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(saldoLabel)
+                            .addComponent(saldoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(agentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(activosLabel)
+                            .addComponent(activosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addComponent(crearAgenteButton)
+                        .addGap(0, 170, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         MainTabbedPane.addTab("Agentes", agentPanel);
+
+        agenteLabel.setText("Agente:");
+
+        tipoLabel.setText("Tipo:");
+
+        cantidadLabel.setText("Cantidad:");
+
+        precioOperacionLabel.setText("Precio:");
+
+        jButton1.setText("Crear");
+
+        jButton2.setText("Borrar");
+
+        tipoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Compra", "Venta" }));
+
+        cantidadTextField.setText("");
+
+        precioTextField.setText("");
 
         javax.swing.GroupLayout operationPanelLayout = new javax.swing.GroupLayout(operationPanel);
         operationPanel.setLayout(operationPanelLayout);
         operationPanelLayout.setHorizontalGroup(
             operationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(operationPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(operationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(agenteLabel)
+                    .addComponent(tipoLabel)
+                    .addComponent(cantidadLabel)
+                    .addComponent(precioOperacionLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(operationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(agenteComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tipoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cantidadTextField)
+                    .addComponent(precioTextField))
+                .addContainerGap())
+            .addGroup(operationPanelLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         operationPanelLayout.setVerticalGroup(
             operationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 355, Short.MAX_VALUE)
+            .addGroup(operationPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(operationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(agenteLabel)
+                    .addComponent(agenteComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(operationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tipoLabel)
+                    .addComponent(tipoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(operationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cantidadLabel)
+                    .addComponent(cantidadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(operationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(precioOperacionLabel)
+                    .addComponent(precioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(operationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
         MainTabbedPane.addTab("Operaciones", operationPanel);
@@ -156,17 +323,45 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    private void crearAgenteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearAgenteButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crearAgenteButtonActionPerformed
+
+    private void crearAgenteButtonListener(ActionListener listener){
+        this.crearAgenteButton.addActionListener(listener);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane MainTabbedPane;
+    private javax.swing.JLabel activosLabel;
+    private javax.swing.JTextField activosTextField;
     private javax.swing.JPanel agentPanel;
+    private javax.swing.JComboBox<String> agenteComboBox;
+    private javax.swing.JLabel agenteLabel;
+    private javax.swing.JLabel cantidadLabel;
+    private javax.swing.JTextField cantidadTextField;
+    private javax.swing.JButton crearAgenteButton;
     private javax.swing.JPanel graficPanel;
     private javax.swing.JPanel infoPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel nombreLabel;
+    private javax.swing.JTextField nombreTextField;
+    private javax.swing.JLabel nuevoAgenteLabel;
     private javax.swing.JPanel operationPanel;
     private javax.swing.JLabel precioLabel;
+    private javax.swing.JLabel precioLabel1;
+    private javax.swing.JLabel precioLabel2;
+    private javax.swing.JLabel precioLabel3;
+    private javax.swing.JLabel precioLabel4;
+    private javax.swing.JLabel precioOperacionLabel;
+    private javax.swing.JTextField precioTextField;
+    private javax.swing.JLabel saldoLabel;
+    private javax.swing.JTextField saldoTextField;
     private javax.swing.JPanel tablePanel;
+    private javax.swing.JComboBox<String> tipoComboBox;
+    private javax.swing.JLabel tipoLabel;
     // End of variables declaration//GEN-END:variables
 }
