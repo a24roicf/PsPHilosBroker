@@ -2,5 +2,9 @@ sharko\psphilosbroker\Agente.class
 sharko\psphilosbroker\MainController$1.class
 sharko\psphilosbroker\GraficaPrecio.class
 sharko\psphilosbroker\MainJFrame$1.class
+sharko\psphilosbroker\PspHilosBroker.class
+sharko\psphilosbroker\Operaciones.class
 sharko\psphilosbroker\Broker.class
+sharko\psphilosbroker\MainController.class
 sharko\psphilosbroker\MainJFrame$2.class
+sharko\psphilosbroker\MainJFrame.class
