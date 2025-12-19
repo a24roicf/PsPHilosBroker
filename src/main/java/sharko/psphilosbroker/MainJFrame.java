@@ -40,10 +40,10 @@ public class MainJFrame extends javax.swing.JFrame {
         tablePanel = new javax.swing.JPanel();
         infoPanel = new javax.swing.JPanel();
         precioLabel = new javax.swing.JLabel();
-        precioLabel1 = new javax.swing.JLabel();
-        precioLabel2 = new javax.swing.JLabel();
-        precioLabel3 = new javax.swing.JLabel();
-        precioLabel4 = new javax.swing.JLabel();
+        maxLabel = new javax.swing.JLabel();
+        minLabel = new javax.swing.JLabel();
+        operacionesLabel = new javax.swing.JLabel();
+        volumenLabel = new javax.swing.JLabel();
         agentPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         agentesTable = new javax.swing.JTable();
@@ -82,13 +82,13 @@ public class MainJFrame extends javax.swing.JFrame {
 
         precioLabel.setText("Precio:");
 
-        precioLabel1.setText("Max:");
+        maxLabel.setText("Max:");
 
-        precioLabel2.setText("Min:");
+        minLabel.setText("Min:");
 
-        precioLabel3.setText("Operaciones:");
+        operacionesLabel.setText("Operaciones:");
 
-        precioLabel4.setText("Volumen:");
+        volumenLabel.setText("Volumen:");
 
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
@@ -98,12 +98,12 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(precioLabel)
-                    .addComponent(precioLabel1)
-                    .addComponent(precioLabel2))
+                    .addComponent(maxLabel)
+                    .addComponent(minLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(precioLabel3)
-                    .addComponent(precioLabel4))
+                    .addComponent(operacionesLabel)
+                    .addComponent(volumenLabel))
                 .addGap(137, 137, 137))
         );
         infoPanelLayout.setVerticalGroup(
@@ -112,13 +112,13 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(precioLabel)
-                    .addComponent(precioLabel3))
+                    .addComponent(operacionesLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(precioLabel1)
-                    .addComponent(precioLabel4))
+                    .addComponent(maxLabel)
+                    .addComponent(volumenLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(precioLabel2)
+                .addComponent(minLabel)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -409,15 +409,14 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel graficPanel;
     private javax.swing.JPanel infoPanel;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel maxLabel;
+    private javax.swing.JLabel minLabel;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField nombreTextField;
     private javax.swing.JLabel nuevoAgenteLabel;
+    private javax.swing.JLabel operacionesLabel;
     private javax.swing.JPanel operationPanel;
     private javax.swing.JLabel precioLabel;
-    private javax.swing.JLabel precioLabel1;
-    private javax.swing.JLabel precioLabel2;
-    private javax.swing.JLabel precioLabel3;
-    private javax.swing.JLabel precioLabel4;
     private javax.swing.JLabel precioOperacionLabel;
     private javax.swing.JTextField precioTextField;
     private javax.swing.JLabel saldoLabel;
@@ -425,5 +424,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel tablePanel;
     private javax.swing.JComboBox<String> tipoComboBox;
     private javax.swing.JLabel tipoLabel;
+    private javax.swing.JLabel volumenLabel;
     // End of variables declaration//GEN-END:variables
 }

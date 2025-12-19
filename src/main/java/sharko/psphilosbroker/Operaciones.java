@@ -1,61 +1,59 @@
 package sharko.psphilosbroker;
 
-/**
- *
- * @author dam2_alu03@inf.ald
- */
-public class Operaciones implements Runnable{
+import java.io.Serializable;
+
+public class Operaciones implements Runnable, Serializable {
+
     private String tipo;
     private double umbral;
     private double cantidad;
-    private Thread hiloEjecutor;
+    private transient Thread hiloEjecutor;  //(transient) Para que no lo serialice (buscado en internet)
+    private Broker broker;
+    private Agente agente;
 
-    public Operaciones(String tipo, double umbral, double cantidad) {
+    public Operaciones(String tipo, double umbral, double cantidad, Broker broker, Agente agente) {
         this.tipo = tipo;
         this.umbral = umbral;
         this.cantidad = cantidad;
+        this.broker = broker;
+        this.agente = agente;
+        hiloEjecutor = new Thread(this);
+        hiloEjecutor.start();
+    }
+
+    public void restartThread(Broker broker, Agente agente) {
+        this.broker = broker;
+        this.agente = agente;
         hiloEjecutor = new Thread(this);
         hiloEjecutor.start();
     }
 
     @Override
     public void run() {
-        //Bucle
-            //Comprobar precio del broker
-                //Si    Pedir el lock Sumar o restar liberar lock
-                //No    Duermo
+        while (true) {
+            synchronized (broker.getLock()) {
+                double precioActual = broker.getPrecioActual();
+                if (tipo.equalsIgnoreCase("compra") && precioActual <= umbral) {
+                    if (agente.getSaldo() >= cantidad * precioActual) {
+                        agente.setSaldo(agente.getSaldo() - cantidad * precioActual);
+                        agente.setActivos(agente.getActivos() + cantidad);
+                        broker.setPrecioActual(precioActual + 0.1);
+                        break;
+                    }
+                } else if (tipo.equalsIgnoreCase("venta") && precioActual >= umbral) {
+                    if (agente.getActivos() >= cantidad) {
+                        agente.setActivos(agente.getActivos() - cantidad);
+                        agente.setSaldo(agente.getSaldo() + cantidad * precioActual);
+                        broker.setPrecioActual(precioActual - 0.1);
+                        break;
+                    }
+                }
+            }
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
-    
-    public void compra(){
-        
-    }
-    
-    public void venta(){
-        
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public double getUmbral() {
-        return umbral;
-    }
-
-    public void setUmbral(double umbral) {
-        this.umbral = umbral;
-    }
-
-    public double getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(double cantidad) {
-        this.cantidad = cantidad;
-    }
-    
 }

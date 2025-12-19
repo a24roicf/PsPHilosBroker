@@ -96,13 +96,13 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="precioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="precioLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="precioLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="maxLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="minLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="140" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="precioLabel3" min="-2" max="-2" attributes="0"/>
-                              <Component id="precioLabel4" min="-2" max="-2" attributes="0"/>
+                              <Component id="operacionesLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="volumenLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
                       </Group>
@@ -114,15 +114,15 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="precioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="precioLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="operacionesLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="precioLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="precioLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="maxLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="volumenLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="precioLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="minLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="12" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -134,22 +134,22 @@
                     <Property name="text" type="java.lang.String" value="Precio:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="precioLabel1">
+                <Component class="javax.swing.JLabel" name="maxLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Max:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="precioLabel2">
+                <Component class="javax.swing.JLabel" name="minLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Min:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="precioLabel3">
+                <Component class="javax.swing.JLabel" name="operacionesLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Operaciones:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="precioLabel4">
+                <Component class="javax.swing.JLabel" name="volumenLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Volumen:"/>
                   </Properties>
