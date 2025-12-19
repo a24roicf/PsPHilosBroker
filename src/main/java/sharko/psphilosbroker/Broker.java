@@ -23,8 +23,18 @@ public class Broker implements Serializable {
         operacionesEjecutadas = new ArrayList<>();
     }
 
-    public void addAgente(Agente a) {
+    public Broker(){
+        agentes = new ArrayList<>();
+    }
+    
+    public boolean existeAgente(String nombre) {
+        return agentes.stream().anyMatch(a -> a.getNombre().equalsIgnoreCase(nombre));
+    }
+    
+    public boolean addAgente(Agente a) {
+        if (existeAgente(a.getNombre())) return false;
         agentes.add(a);
+        return true;
     }
 
     public List<Agente> getAgentes() {

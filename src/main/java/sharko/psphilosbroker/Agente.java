@@ -6,7 +6,8 @@ import java.io.Serializable;
  *
  * @author dam2_alu03@inf.ald
  */
-public class Agente implements Serializable{
+public class Agente implements Serializable {
+
     private int id;
     private String nombre;
     private Operaciones compra;
@@ -20,9 +21,17 @@ public class Agente implements Serializable{
         this.venta = venta;
         this.saldo = saldo;
     }
-    
-    public boolean nuevaOperacion(String tipo, double limite, double cantidad){
-        switch (tipo){
+
+    public Agente(int id, String nombre, double saldo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.saldo = saldo;
+        this.compra = null;
+        this.venta = null;
+    }
+
+    public boolean nuevaOperacion(String tipo, double limite, double cantidad) {
+        switch (tipo) {
             case "compra":
                 if (compra == null) {
                     compra = new Operaciones(tipo, limite, cantidad);
@@ -32,7 +41,7 @@ public class Agente implements Serializable{
                 }
                 break;
             case "venta":
-                if (venta == null){
+                if (venta == null) {
                     venta = new Operaciones(tipo, limite, cantidad);
                     return true;
                 } else {

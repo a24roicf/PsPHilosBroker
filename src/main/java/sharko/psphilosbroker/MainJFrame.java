@@ -5,6 +5,7 @@
 package sharko.psphilosbroker;
 
 import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -39,7 +40,7 @@ public class MainJFrame extends javax.swing.JFrame {
         precioLabel4 = new javax.swing.JLabel();
         agentPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        agentesTable = new javax.swing.JTable();
         nuevoAgenteLabel = new javax.swing.JLabel();
         nombreLabel = new javax.swing.JLabel();
         saldoLabel = new javax.swing.JLabel();
@@ -138,7 +139,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         MainTabbedPane.addTab("Grafica", graficPanel);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        agentesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -154,8 +155,8 @@ public class MainJFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setRequestFocusEnabled(false);
-        jScrollPane1.setViewportView(jTable1);
+        agentesTable.setRequestFocusEnabled(false);
+        jScrollPane1.setViewportView(agentesTable);
 
         nuevoAgenteLabel.setText("Nuevo Agente");
 
@@ -327,8 +328,30 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_crearAgenteButtonActionPerformed
 
-    private void crearAgenteButtonListener(ActionListener listener){
+    public void addCrearAgenteButtonListener(ActionListener listener) {
         this.crearAgenteButton.addActionListener(listener);
+    }
+
+    public String getNombreAgente() {
+        return nombreTextField.getText().trim();
+    }
+
+    public String getSaldoAgente() {
+        return saldoTextField.getText().trim();
+    }
+
+    public String getActivosAgente() {
+        return activosTextField.getText().trim();
+    }
+
+    public DefaultTableModel getModeloTablaAgentes() {
+        return (DefaultTableModel) agentesTable.getModel();
+    }
+
+    public void limpiarFormularioAgente() {
+        nombreTextField.setText("");
+        saldoTextField.setText("");
+        activosTextField.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -338,6 +361,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel agentPanel;
     private javax.swing.JComboBox<String> agenteComboBox;
     private javax.swing.JLabel agenteLabel;
+    private javax.swing.JTable agentesTable;
     private javax.swing.JLabel cantidadLabel;
     private javax.swing.JTextField cantidadTextField;
     private javax.swing.JButton crearAgenteButton;
@@ -346,7 +370,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField nombreTextField;
     private javax.swing.JLabel nuevoAgenteLabel;
