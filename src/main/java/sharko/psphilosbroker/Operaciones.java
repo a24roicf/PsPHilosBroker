@@ -19,9 +19,9 @@ public class Operaciones implements Runnable, Serializable {
         this.agente = agente;
         hiloEjecutor = new Thread(this);
         hiloEjecutor.start();
-        
+
         System.out.println("[HILO] Operación " + tipo.toUpperCase()
-            + " iniciada para " + agente.getNombre());
+                + " iniciada para " + agente.getNombre());
     }
 
     public void restartThread(Broker broker, Agente agente) {
@@ -36,36 +36,36 @@ public class Operaciones implements Runnable, Serializable {
         while (true) {
             synchronized (broker.getLock()) {
                 double precioActual = broker.getPrecioActual();
-                
+
                 System.out.println("[HILO] " + agente.getNombre()
-                    + " quiere " + tipo
-                    + " | Precio actual = " + precioActual
-                    + " | Umbral = " + umbral);
-                
+                        + " quiere " + tipo
+                        + " | Precio actual = " + precioActual
+                        + " | Umbral = " + umbral);
+
                 if (tipo.equalsIgnoreCase("compra") && precioActual <= umbral) {
                     if (agente.getSaldo() >= cantidad * precioActual) {
                         agente.setSaldo(agente.getSaldo() - cantidad * precioActual);
                         agente.setActivos(agente.getActivos() + cantidad);
-                        broker.setPrecioActual(precioActual + 0.1);
-                        
+                        broker.setPrecioActual(precioActual + 0.5);
+
                         System.out.println("[COMPRA] ejecutada por "
-                            + agente.getNombre()
-                            + " | Cantidad = " + cantidad
-                            + " | Precio = " + precioActual);
-                        
+                                + agente.getNombre()
+                                + " | Cantidad = " + cantidad
+                                + " | Precio = " + precioActual);
+
                         break;
                     }
                 } else if (tipo.equalsIgnoreCase("venta") && precioActual >= umbral) {
                     if (agente.getActivos() >= cantidad) {
                         agente.setActivos(agente.getActivos() - cantidad);
                         agente.setSaldo(agente.getSaldo() + cantidad * precioActual);
-                        broker.setPrecioActual(precioActual - 0.1);
-                        
+                        broker.setPrecioActual(precioActual - 0.5);
+
                         System.out.println("[VENTA] ejecutada por "
-                            + agente.getNombre()
-                            + " | Cantidad = " + cantidad
-                            + " | Precio = " + precioActual);
-                        
+                                + agente.getNombre()
+                                + " | Cantidad = " + cantidad
+                                + " | Precio = " + precioActual);
+
                         break;
                     }
                 }
@@ -76,6 +76,13 @@ public class Operaciones implements Runnable, Serializable {
                 e.printStackTrace();
             }
         }
+
+        if (tipo.equalsIgnoreCase("compra")) {
+            agente.limpiarCompra();
+        } else {
+            agente.limpiarVenta();
+        }
+
         System.out.println("[HILO] Operación finalizada para " + agente.getNombre());
     }
 }

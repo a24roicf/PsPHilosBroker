@@ -26,7 +26,7 @@ public class Agente implements Serializable {
                 if (compra == null) {
                     compra = new Operaciones(tipo, limite, cantidad, broker, this);
                     System.out.println("[AGENTE " + nombre + "] Nueva COMPRA -> Cantidad= "
-                        + cantidad + " Precio límite = " + limite);
+                            + cantidad + " Precio límite = " + limite);
                     return true;
                 }
                 break;
@@ -34,13 +34,21 @@ public class Agente implements Serializable {
                 if (venta == null) {
                     venta = new Operaciones(tipo, limite, cantidad, broker, this);
                     System.out.println("[AGENTE " + nombre + "] Nueva VENTA -> Cantidad="
-                        + cantidad + " Precio límite = " + limite);
+                            + cantidad + " Precio límite = " + limite);
                     return true;
                 }
                 System.out.println("[AGENTE " + nombre + "] Ya existe una VENTA");
                 break;
         }
         return false;
+    }
+
+    public void limpiarCompra() {
+        compra = null;
+    }
+
+    public void limpiarVenta() {
+        venta = null;
     }
 
     public int getId() {
