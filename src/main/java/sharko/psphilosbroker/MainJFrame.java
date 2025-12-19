@@ -4,8 +4,10 @@
  */
 package sharko.psphilosbroker;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
+import org.knowm.xchart.*;
 
 /**
  *
@@ -18,6 +20,10 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
+
+        GraficaPrecio grafica = new GraficaPrecio();
+        tablePanel.setLayout(new BorderLayout());
+        tablePanel.add(grafica.getPanel(), BorderLayout.CENTER);
     }
 
     /**
@@ -123,8 +129,8 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(graficPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(graficPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         graficPanelLayout.setVerticalGroup(
@@ -132,9 +138,9 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(graficPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         MainTabbedPane.addTab("Grafica", graficPanel);
@@ -232,7 +238,7 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addComponent(activosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
                         .addComponent(crearAgenteButton)
-                        .addGap(0, 170, Short.MAX_VALUE))
+                        .addGap(0, 159, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -305,7 +311,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(operationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(crearOperacionButton)
                     .addComponent(borrarButton))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
 
         MainTabbedPane.addTab("Operaciones", operationPanel);
@@ -386,7 +392,6 @@ public class MainJFrame extends javax.swing.JFrame {
     public void addAgenteCombo(Agente a) {
         agenteComboBox.addItem(a);
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane MainTabbedPane;
