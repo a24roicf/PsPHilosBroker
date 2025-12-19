@@ -15,14 +15,30 @@ public class MainController {
 
     public MainController(MainJFrame view) {
         this.view = view;
-        this.broker = new Broker();
+        this.broker = Broker.cargar();
 
         initController();
+        cargarDatos();
+        guardarAlSalir();
     }
 
     private void initController() {
         view.addCrearAgenteButtonListener(e -> crearAgente());
         view.addCrearOperacionListener(e -> crearOperacion());
+    }
+
+    private void guardarAlSalir() {
+        view.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                broker.guardar();
+                System.out.println("Datos guardados antes de cerrar.");
+            }
+        });
+    }
+
+    public Broker getBroker() {
+        return broker;
     }
 
     private void crearAgente() {
@@ -109,6 +125,22 @@ public class MainController {
         );
 
         view.limpiarFormularioOperacion();
+    }
+
+    private void cargarDatos() {
+        DefaultTableModel model = view.getModeloTablaAgentes();
+        model.setRowCount(0);
+
+        for (Agente agente : broker.getAgentes()) {
+            
+            model.addRow(new Object[]{
+                agente.getNombre(),
+                agente.getSaldo(),
+                0
+            });
+            
+            view.addAgenteCombo(agente);
+        }
     }
 
     private void mostrarError(String mensaje) {
