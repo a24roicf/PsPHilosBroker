@@ -57,7 +57,7 @@ PSP Hilos Broker es una aplicación en Java que simula un sistema de operaciones
     - Agentes: permite crear y listar agentes.
     - Operaciones: permite crear nuevas operaciones de compra/venta.
 ## Uso
-### Ejecuta la aplicaciónn:
+### Ejecuta la aplicación:
 `java -jar PspHilosBroker.jar`
 ### Crear agentes:
 - Rellenar nombre, saldo y activos.
