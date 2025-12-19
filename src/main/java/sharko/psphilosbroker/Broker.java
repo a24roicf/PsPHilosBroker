@@ -11,7 +11,7 @@ public class Broker implements Serializable {
     private double maximo;
     private double minimo;
     private List<Agente> agentes;
-    private transient final Object lock = new Object();     //(transient) Para que no lo serialice (buscado en internet)
+    private transient Object lock = new Object();     //(transient) Para que no lo serialice (buscado en internet)
 
     public Broker(double precioInicial) {
         this.precioActual = precioInicial;
@@ -25,6 +25,9 @@ public class Broker implements Serializable {
     }
 
     public Object getLock() {
+        if (lock == null) {
+            lock = new Object();
+        }
         return lock;
     }
 
@@ -37,6 +40,9 @@ public class Broker implements Serializable {
             return false;
         }
         agentes.add(a);
+        System.out.println("[BROKER] Agente creado: " + a.getNombre()
+                + " | Saldo = " + a.getSaldo()
+                + " | Activos = " + a.getActivos());
         return true;
     }
 

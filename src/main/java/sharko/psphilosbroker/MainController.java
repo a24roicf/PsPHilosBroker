@@ -8,6 +8,7 @@ public class MainController {
     private MainJFrame view;
     private Broker broker;
     private int contadorId = 1;
+    DefaultTableModel model;
 
     public MainController(MainJFrame view) {
         this.view = view;
@@ -37,7 +38,7 @@ public class MainController {
         double activos = Double.parseDouble(view.getActivosAgente());
         Agente agente = new Agente(contadorId++, nombre, saldo, activos);
         broker.addAgente(agente);
-        DefaultTableModel model = view.getModeloTablaAgentes();
+        model = view.getModeloTablaAgentes();
         model.addRow(new Object[]{agente.getNombre(), agente.getSaldo(), agente.getActivos()});
         view.limpiarFormularioAgente();
         view.addAgenteCombo(agente);
@@ -63,4 +64,5 @@ public class MainController {
             view.addAgenteCombo(agente);
         }
     }
+    
 }

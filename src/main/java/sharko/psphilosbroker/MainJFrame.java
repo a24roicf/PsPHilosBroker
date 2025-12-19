@@ -61,7 +61,6 @@ public class MainJFrame extends javax.swing.JFrame {
         cantidadLabel = new javax.swing.JLabel();
         precioOperacionLabel = new javax.swing.JLabel();
         crearOperacionButton = new javax.swing.JButton();
-        borrarButton = new javax.swing.JButton();
         agenteComboBox = new javax.swing.JComboBox<>();
         tipoComboBox = new javax.swing.JComboBox<>();
         cantidadTextField = new javax.swing.JTextField();
@@ -196,14 +195,8 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(agentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(agentPanelLayout.createSequentialGroup()
                         .addComponent(activosLabel)
-                        .addGroup(agentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(agentPanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(crearAgenteButton)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(agentPanelLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(activosTextField))))
+                        .addGap(11, 11, 11)
+                        .addComponent(activosTextField))
                     .addGroup(agentPanelLayout.createSequentialGroup()
                         .addComponent(nuevoAgenteLabel)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -214,7 +207,10 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(agentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(saldoTextField)
-                            .addComponent(nombreTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))))
+                            .addComponent(nombreTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, agentPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(crearAgenteButton)))
                 .addContainerGap())
         );
         agentPanelLayout.setVerticalGroup(
@@ -255,8 +251,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         crearOperacionButton.setText("Crear");
 
-        borrarButton.setText("Borrar");
-
         tipoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Compra", "Venta" }));
 
         cantidadTextField.setText("");
@@ -284,9 +278,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(operationPanelLayout.createSequentialGroup()
                 .addGap(110, 110, 110)
                 .addComponent(crearOperacionButton)
-                .addGap(18, 18, 18)
-                .addComponent(borrarButton)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
         operationPanelLayout.setVerticalGroup(
             operationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,9 +300,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(precioOperacionLabel)
                     .addComponent(precioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(operationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(crearOperacionButton)
-                    .addComponent(borrarButton))
+                .addComponent(crearOperacionButton)
                 .addContainerGap(173, Short.MAX_VALUE))
         );
 
@@ -369,10 +359,6 @@ public class MainJFrame extends javax.swing.JFrame {
         crearOperacionButton.addActionListener(l);
     }
 
-    public void addBorrarOperacionListener(java.awt.event.ActionListener l) {
-        borrarButton.addActionListener(l);
-    }
-
     public String getTipoOperacion() {
         return (String) tipoComboBox.getSelectedItem();
     }
@@ -401,7 +387,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<Agente> agenteComboBox;
     private javax.swing.JLabel agenteLabel;
     private javax.swing.JTable agentesTable;
-    private javax.swing.JButton borrarButton;
     private javax.swing.JLabel cantidadLabel;
     private javax.swing.JTextField cantidadTextField;
     private javax.swing.JButton crearAgenteButton;

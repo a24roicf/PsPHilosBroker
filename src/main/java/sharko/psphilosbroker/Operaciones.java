@@ -19,6 +19,9 @@ public class Operaciones implements Runnable, Serializable {
         this.agente = agente;
         hiloEjecutor = new Thread(this);
         hiloEjecutor.start();
+        
+        System.out.println("[HILO] Operación " + tipo.toUpperCase()
+            + " iniciada para " + agente.getNombre());
     }
 
     public void restartThread(Broker broker, Agente agente) {
@@ -33,11 +36,23 @@ public class Operaciones implements Runnable, Serializable {
         while (true) {
             synchronized (broker.getLock()) {
                 double precioActual = broker.getPrecioActual();
+                
+                System.out.println("[HILO] " + agente.getNombre()
+                    + " quiere " + tipo
+                    + " | Precio actual = " + precioActual
+                    + " | Umbral = " + umbral);
+                
                 if (tipo.equalsIgnoreCase("compra") && precioActual <= umbral) {
                     if (agente.getSaldo() >= cantidad * precioActual) {
                         agente.setSaldo(agente.getSaldo() - cantidad * precioActual);
                         agente.setActivos(agente.getActivos() + cantidad);
                         broker.setPrecioActual(precioActual + 0.1);
+                        
+                        System.out.println("[COMPRA] ejecutada por "
+                            + agente.getNombre()
+                            + " | Cantidad = " + cantidad
+                            + " | Precio = " + precioActual);
+                        
                         break;
                     }
                 } else if (tipo.equalsIgnoreCase("venta") && precioActual >= umbral) {
@@ -45,15 +60,22 @@ public class Operaciones implements Runnable, Serializable {
                         agente.setActivos(agente.getActivos() - cantidad);
                         agente.setSaldo(agente.getSaldo() + cantidad * precioActual);
                         broker.setPrecioActual(precioActual - 0.1);
+                        
+                        System.out.println("[VENTA] ejecutada por "
+                            + agente.getNombre()
+                            + " | Cantidad = " + cantidad
+                            + " | Precio = " + precioActual);
+                        
                         break;
                     }
                 }
             }
             try {
-                Thread.sleep(500);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+        System.out.println("[HILO] Operación finalizada para " + agente.getNombre());
     }
 }

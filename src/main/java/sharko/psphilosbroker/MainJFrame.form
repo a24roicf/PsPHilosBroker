@@ -177,17 +177,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="activosLabel" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="crearAgenteButton" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                      <Component id="activosTextField" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <Component id="activosTextField" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="nuevoAgenteLabel" min="-2" max="-2" attributes="0"/>
@@ -203,6 +194,10 @@
                                   <Component id="saldoTextField" max="32767" attributes="0"/>
                                   <Component id="nombreTextField" pref="135" max="32767" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="crearAgenteButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -347,9 +342,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                       <Component id="crearOperacionButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="borrarButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="128" max="32767" attributes="0"/>
+                      <EmptySpace pref="218" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -377,10 +370,7 @@
                           <Component id="precioTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="crearOperacionButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="borrarButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="crearOperacionButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="173" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -410,11 +400,6 @@
             <Component class="javax.swing.JButton" name="crearOperacionButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Crear"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="borrarButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Borrar"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="agenteComboBox">

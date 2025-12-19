@@ -45,7 +45,7 @@ public class GraficaPrecio {
     }
 
     private void iniciarSimulacion() {
-        Timer timer = new Timer(5000, e -> actualizarPrecio());
+        Timer timer = new Timer(2000, e -> actualizarPrecio());
         timer.start();
     }
 

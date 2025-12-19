@@ -25,14 +25,19 @@ public class Agente implements Serializable {
             case "compra":
                 if (compra == null) {
                     compra = new Operaciones(tipo, limite, cantidad, broker, this);
+                    System.out.println("[AGENTE " + nombre + "] Nueva COMPRA -> Cantidad= "
+                        + cantidad + " Precio límite = " + limite);
                     return true;
                 }
                 break;
             case "venta":
                 if (venta == null) {
                     venta = new Operaciones(tipo, limite, cantidad, broker, this);
+                    System.out.println("[AGENTE " + nombre + "] Nueva VENTA -> Cantidad="
+                        + cantidad + " Precio límite = " + limite);
                     return true;
                 }
+                System.out.println("[AGENTE " + nombre + "] Ya existe una VENTA");
                 break;
         }
         return false;
